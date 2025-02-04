@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+# *.code-workspace
+Cooper_Portfolio_files/
+/.quarto/
+_site/
+Dr-Charnigo-docs/

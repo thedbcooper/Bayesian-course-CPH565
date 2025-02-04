@@ -1,0 +1,33 @@
+---
+title: "CPH 565 Portfolio"
+author: "Daniel B. Cooper"
+categories: [news, code, analysis]
+image: "image.png"
+---
+
+<font size="5"> Bayesian Biostatistics (Spring 2025) </font>
+
+Author: Daniel B. Cooper
+
+Table of Contents
+
+- [Chapter 2](#chapter-2)
+  - [Non-informative prior](#non-informative-prior)
+- [Appendix](#appendix)
+  - [Chapter 2](#chapter-2-1)
+
+
+## Chapter 2
+### Non-informative prior
+<!-- ![](Ch2_3/non-informative-prior.png) -->
+<img src="Ch2_3/non-informative-prior.png" width="300" height="300" />
+
+The non-informative prior introduced to the example changed the curves. The prior line is now a flat horizontal line. This gives zero information to the calculation about the probability distrubution we might expect from the posterior distributions. For the small sample size, posterior uncertainty is large but resembles the density of the larger sample. A credible interval would take up almost the entire range of p. With just 15 more data points, the posterior distribution resembles the posterior distribution in the examples with realistic and unrealistic priors where n=20.
+
+The non-informative prior highlights that sample size is even more important in reducing uncertainty since the data is the only driver for determining posterier distribution. Compared to the "bad" or unrealistic prior, the posterior distribution of the smaller sample size was actually closer to the larger sample size when using the non-informative prior. This may highlight why some statisticians would choose a non-informative prior to let the data drive the posterior uncertaintly since choosing an unrealistic prior chould be in disagreement with the data.
+
+
+
+## Appendix
+### Chapter 2
+Acknowledgments: R code ([PortfolioChap2-3.r](Ch2_3/PorfolioChap2-3.r)) for the image created for chapter 2 was adapted from Dr. Charnigo's Chapter 2b examples.

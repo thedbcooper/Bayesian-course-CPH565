@@ -1,0 +1,10 @@
+---
+title: "Welcome To My CPH 565 Portfolio Blog"
+author: "Daniel B. Cooper"
+date: "2025-02-03"
+categories: [news]
+---
+
+This is my first post in a Quarto blog. Welcome!
+
+<!-- ![](thumbnail.jpg) -->

@@ -1,0 +1,16 @@
+---
+title: "About"
+image: profile.png
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/danielblakecooper/
+    - icon: github
+      text: Github
+      href: https://github.com/thedbcooper
+
+---
+
+This website hosts my portfolio for the CPH 565: Bayesian Biostatitics course. Coursework is informed by the following book: [Doing Bayesian Data Analysis](https://sites.google.com/site/doingbayesiandataanalysis/home?authuser=0)

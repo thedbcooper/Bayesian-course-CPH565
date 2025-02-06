@@ -17,7 +17,9 @@ secondposterior = dbeta(grid,1+4,1+16)
 # This defines posterior relative credibilities for possible values of  p  on the grid,
 # with the pessimistic prior, after  4  successes and  16  failures.
 
-png("./Ch2_3/non-informative-prior.png")
+# here::i_am("posts/primary/Ch2_3/PortfolioChap2-3.r")
+# png(here::here("posts/primary/Ch2_3/non-informative-prior.png"))
+png("./non-informative-prior.png")
 
 plot(grid,firstprior,type="l",ylim=c(0,1.1*max(firstprior,firstposterior,secondposterior)),
 	col=1, xlab="p", lwd=2, ylab="Relative credibilities")

@@ -13,21 +13,51 @@ Table of Contents
 
 - [Chapter 2](#chapter-2)
   - [Non-informative prior](#non-informative-prior)
+  - [Highest Density Credible Interval](#highest-density-credible-interval)
+- [Chapter 3](#chapter-3)
+  - [Linear Regression](#linear-regression)
+  - [Mahalanobis Distance](#mahalanobis-distance)
 - [Appendix](#appendix)
   - [Chapter 2](#chapter-2-1)
-
+  - [Chapter 3](#chapter-3-1)
 
 ## Chapter 2
 ### Non-informative prior
-<!-- ![](Ch2_3/non-informative-prior.png) -->
-<img src="Ch2_3/non-informative-prior.png" width="300" height="300" />
+![](Ch2_3/non-informative-prior.png)
+<!-- <img src="Ch2_3/non-informative-prior.png" width="300" height="300" /> -->
 
 The non-informative prior introduced to the example changed the curves. The prior line is now a flat horizontal line. This gives zero information to the calculation about the probability distrubution we might expect from the posterior distributions. For the small sample size, posterior uncertainty is large but resembles the density of the larger sample. A credible interval would take up almost the entire range of p. With just 15 more data points, the posterior distribution resembles the posterior distribution in the examples with realistic and unrealistic priors where n=20.
 
 The non-informative prior highlights that sample size is even more important in reducing uncertainty since the data is the only driver for determining posterier distribution. Compared to the "bad" or unrealistic prior, the posterior distribution of the smaller sample size was actually closer to the larger sample size when using the non-informative prior. This may highlight why some statisticians would choose a non-informative prior to let the data drive the posterior uncertaintly since choosing an unrealistic prior chould be in disagreement with the data.
 
+### Highest Density Credible Interval
+The 95% highest posterior density credible interval for p, corresponding to the non-informative prior and the larger data set is:
+0.06921215 <= p <= 0.3994838. There is a 95% probability that the true value of the parameter (probability of successful free throws) is between 0.069 and 0.399. I used both the Newton-Raphson method and the optimize() function in R to calcuate the narrowest interval.
 
+![](Ch2_3/95_CI.png)
+<!-- <img src="Ch2_3/95_CI.png" width="300" height="300" /> -->
+
+## Chapter 3
+### Linear Regression
+
+
+### Mahalanobis Distance
 
 ## Appendix
 ### Chapter 2
-Acknowledgments: R code ([PortfolioChap2-3.r](Ch2_3/PorfolioChap2-3.r)) for the image created for chapter 2 was adapted from Dr. Charnigo's Chapter 2b examples.
+Acknowledgments: R code for the images created for chapter 2 was adapted from Dr. Charnigo's Chapter 2b examples. R code for calculating the 95% highest density CI was adapted from Dr. Charnigo's Chapter 3b Notes and from [math.arizona.edu/~jwatkins/I4_bayes](https://math.arizona.edu/~jwatkins/I4_bayes.pdf)
+
+Code:
+```{r, echo = FALSE}
+cat(readLines(here::here("posts/primary/Ch2_3/PortfolioChap2.r")), sep = '\n')
+
+```
+
+### Chapter 3
+Acknowledgments: R code for completing chapter 3 portfolio contributions was adapted from Dr. Charnigo's Chapter 3a and 3b examples.
+
+Code:
+```{r, echo = FALSE}
+cat(readLines(here::here("posts/primary/Ch2_3/PortfolioChap3.r")), sep = '\n')
+
+```

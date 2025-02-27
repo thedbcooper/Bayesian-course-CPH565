@@ -1,7 +1,7 @@
 ---
 title: "CPH 565 Portfolio"
 author: "Daniel B. Cooper"
-categories: [news, code, analysis]
+categories: [code, analysis]
 image: "image.png"
 ---
 
@@ -39,9 +39,17 @@ The 95% highest posterior density credible interval for p, corresponding to the 
 
 ## Chapter 3
 ### Linear Regression
+![](Ch2_3/linear-model.png)
 
+
+![](Ch2_3/linear-model-residuals.png)
+
+There a few observations that stand out in both the scatter plot/fitted line plot and the residual plot.
 
 ### Mahalanobis Distance
+
+
+![](Ch2_3/mdistance-plot.png)
 
 ## Appendix
 ### Chapter 2

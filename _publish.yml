@@ -1,4 +1,4 @@
 - source: project
   quarto-pub:
     - id: 689a28b4-1b92-4026-b44c-3ec4d8f2f5d1
-      url: 'https://dbcooper.quarto.pub/cph-565-portfolio'
+      url: https://dbcooper.quarto.pub/cph-565-portfolio

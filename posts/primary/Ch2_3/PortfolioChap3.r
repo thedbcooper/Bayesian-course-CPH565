@@ -26,7 +26,7 @@ dev.off()
 u = fit$f
 v = fit$re
 my_data_fitted = as.data.frame(round(cbind(x,y,u,v),2))
-
+my_data_fitted$abs_re <- abs(my_data_fitted$v)
 png("./posts/primary/Ch2_3/linear-model-residuals.png", width = 400, height = 400)
 
 plot(my_data_fitted$x, my_data_fitted$v, xlab = "X", ylab = "Residuals")
@@ -55,6 +55,8 @@ for (k in 1:length(x))
 { madistxy[k] = sqrt( t(  c(x[k], y[k]) - meanvector ) %*% solve(varcovmatrix) %*% (  c(x[k], y[k]) - meanvector ) ) }
 
 my_data_fitted$madistxy <- madistxy
+
+write.csv(my_data_fitted, file = "./posts/primary/Ch2_3/linear-model-data.csv", row.names = FALSE)
 
 # M distance contour plot
 xrange = sort(x)

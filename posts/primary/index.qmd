@@ -23,7 +23,7 @@ Table of Contents
 
 ### Non-informative prior {#non-informative-prior}
 
-![](Ch2_3/non-informative-prior.png){width="300"}
+![](portfolio_full/non-informative-prior.png){width="300"}
 
 The non-informative prior introduced to the example changed the curves. The prior line is now a flat horizontal line. This gives zero information to the calculation about the probability distrubution we might expect from the posterior distributions. For the small sample size, posterior uncertainty is large but resembles the density of the larger sample. A credible interval would take up almost the entire range of p. With just 15 more data points, the posterior distribution resembles the posterior distribution in the examples with realistic and unrealistic priors where n=20.
 
@@ -33,15 +33,15 @@ The non-informative prior highlights that sample size is even more important in 
 
 The 95% highest posterior density credible interval for p, corresponding to the non-informative prior and the larger data set is: 0.06921215 \<= p \<= 0.3994838. There is a 95% probability that the true value of the parameter (probability of successful free throws) is between 0.069 and 0.399. I used both the Newton-Raphson method and the optimize() function in R to calcuate the narrowest interval.
 
-![](Ch2_3/95_CI.png){width="300"}
+![](portfolio_full/95_CI.png){width="300"}
 
 ## Chapter 3 {#chapter-3}
 
 ### Linear Regression {#linear-regression}
 
-![](Ch2_3/linear-model.png){width="300"}
+![](portfolio_full/linear-model.png){width="300"}
 
-![](Ch2_3/linear-model-residuals.png){width="300"}
+![](portfolio_full/linear-model-residuals.png){width="300"}
 
 First, it seems from the fitted line that the model fits the data well. However; there are a few observations that stand out in both the scatter plot/fitted line plot and the residual plot. Visually, there are 3 points to me that are "far" from the fitted line in the first plot and have large residuals (far from 0) in the second plot. Let's look at a table with the observations with the largest residual values:
 
@@ -51,7 +51,7 @@ First, it seems from the fitted line that the model fits the data well. However;
 #| tbl-colwidths: [60,60]
 #| echo: false
 
-knitr::kable(head(dplyr::arrange(read.csv(here::here("posts/primary/Ch2_3/linear-model-data.csv")), dplyr::desc(abs_re)), 5))
+knitr::kable(head(dplyr::arrange(read.csv(here::here("posts/primary/portfolio_full/linear-model-data.csv")), dplyr::desc(abs_re)), 5))
 ```
 
 First, the observation with x == 0.95 and y == -1.46 has a residual value of -4.11. Visually, that point seemed far from the fitted line to me in plot 1, and the residual checks out. Next, the observation with x == -0.82 and y == 1.63 has a residual value of 4.09. This also stood out to me as "far" from the fitted line in plot 1. You can see these as far from the horizontal line at 0 in the residual plot as well!
@@ -60,7 +60,10 @@ First, the observation with x == 0.95 and y == -1.46 has a residual value of -4.
 
 Based on the table above, we can see that the highest Mahalanobis Distance values co-occur with observations with high residual values. This makes sense! This Mahalanobis distance is based on an observation's distance from the mean vector, considering variance and covariance. This is similar to what the residual is showing in our basic example with one predictor and one response variable. From the plot below, the shape of the contour is very similar to the shape of the fitted line. In this simple example, values for Mahalnobis Distance and for absolute residual value are extremely similar.
 
-![](Ch2_3/mdistance-plot.png){width="300"}
+![](portfolio_full/mdistance-plot.png){width="300"}
+
+## Chapter 5
+
 
 ## Appendix {#appendix}
 
@@ -71,7 +74,7 @@ Acknowledgments: R code for the images created for chapter 2 was adapted from Dr
 Code:
 
 ```{r, echo = FALSE}
-cat(readLines(here::here("posts/primary/Ch2_3/PortfolioChap2.r")), sep = "\n")
+cat(readLines(here::here("posts/primary/portfolio_full/PortfolioChap2.r")), sep = "\n")
 
 ```
 
@@ -82,6 +85,17 @@ Acknowledgments: R code for completing chapter 3 portfolio contributions was ada
 Code:
 
 ```{r, echo = FALSE}
-cat(readLines(here::here("posts/primary/Ch2_3/PortfolioChap3.r")), sep = "\n")
+cat(readLines(here::here("posts/primary/portfolio_full/PortfolioChap3.r")), sep = "\n")
+
+```
+
+### Chapter 5
+
+Acknowledgments:
+
+Code:
+
+```{r, echo = FALSE}
+cat(readLines(here::here("posts/primary/portfolio_full/PortfolioChap5.r")), sep = "\n")
 
 ```

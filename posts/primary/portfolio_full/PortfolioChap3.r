@@ -5,7 +5,7 @@
 
 # Linear regression ----
 # read data
-my_data <- read.table("posts/primary/Ch2_3/Chapter3PortfolioData.txt")
+my_data <- read.table("posts/primary/portfolio_full/Chapter3PortfolioData.txt")
 x <- my_data$x
 y <- my_data$y
 
@@ -13,7 +13,7 @@ fit = lm(y~x)
 
 summary(fit)
 
-png("./posts/primary/Ch2_3/linear-model.png", width = 400, height = 400)
+png("./posts/primary/portfolio_full/linear-model.png", width = 400, height = 400)
 
 plot(x,y,xlab="X",ylab="Y")
 abline(a=fit$co[1],b=fit$co[2],lwd=2)
@@ -27,7 +27,7 @@ u = fit$f
 v = fit$re
 my_data_fitted = as.data.frame(round(cbind(x,y,u,v),2))
 my_data_fitted$abs_re <- abs(my_data_fitted$v)
-png("./posts/primary/Ch2_3/linear-model-residuals.png", width = 400, height = 400)
+png("./posts/primary/portfolio_full/linear-model-residuals.png", width = 400, height = 400)
 
 plot(my_data_fitted$x, my_data_fitted$v, xlab = "X", ylab = "Residuals")
 lines(seq(min(my_data_fitted$x), max(my_data_fitted$x)), rep(0, 6))
@@ -56,7 +56,7 @@ for (k in 1:length(x))
 
 my_data_fitted$madistxy <- madistxy
 
-write.csv(my_data_fitted, file = "./posts/primary/Ch2_3/linear-model-data.csv", row.names = FALSE)
+write.csv(my_data_fitted, file = "./posts/primary/portfolio_full/linear-model-data.csv", row.names = FALSE)
 
 # M distance contour plot
 xrange = sort(x)
@@ -76,7 +76,7 @@ for (k in 1:length(xgrid))
 madistxymatrix = t( matrix( madistxy, ncol=length(xrange) ))
 
 
-png("./posts/primary/Ch2_3/mdistance-plot.png", width = 400, height = 400)
+png("./posts/primary/portfolio_full/mdistance-plot.png", width = 400, height = 400)
 
 contour( xrange, yrange, madistxymatrix,xlab="X",ylab="Y",main="Mahalanobis Distance Plot")
 

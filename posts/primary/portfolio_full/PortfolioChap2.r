@@ -17,9 +17,9 @@ secondposterior = dbeta(grid,1+4,1+16)
 # This defines posterior relative credibilities for possible values of  p  on the grid,
 # with the pessimistic prior, after  4  successes and  16  failures.
 
-# here::i_am("posts/primary/Ch2_3/PortfolioChap2-3.r")
-# png(here::here("posts/primary/Ch2_3/non-informative-prior.png"))
-png("./posts/primary/Ch2_3/non-informative-prior.png", width = 400, height = 400)
+# here::i_am("posts/primary/portfolio_full/PortfolioChap2-3.r")
+# png(here::here("posts/primary/portfolio_full/non-informative-prior.png"))
+png("./posts/primary/portfolio_full/non-informative-prior.png", width = 400, height = 400)
 
 plot(grid,firstprior,type="l",ylim=c(0,1.1*max(firstprior,firstposterior,secondposterior)),
 	col=1, xlab="p", lwd=2, ylab="Relative credibilities")
@@ -56,7 +56,7 @@ lower_limit
 # long way: (use Newton-Raphson method to optimize)
 diff(0.05)
 
-png("./posts/primary/Ch2_3/95_CI.png", width = 400, height = 400)
+png("./posts/primary/portfolio_full/95_CI.png", width = 400, height = 400)
 plot(grid, secondposterior, type = "l", xlab = "p", ylab = "Relative credibilities")
 
 lines( rep(lower_limit,100), seq(0,secondposterior[grid==round(lower_limit,3)],length.out=100), col=2, lwd=2)

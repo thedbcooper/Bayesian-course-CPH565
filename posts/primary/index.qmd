@@ -9,19 +9,24 @@ image: "image.png"
 
 Table of Contents
 
--   [Chapter 2](#chapter-2)
-    -   [Non-informative prior](#non-informative-prior)
-    -   [Highest Density Credible Interval](#highest-density-credible-interval)
--   [Chapter 3](#chapter-3)
-    -   [Linear Regression](#linear-regression)
-    -   [Mahalanobis Distance](#mahalanobis-distance)
--   [Appendix](#appendix)
-    -   [Chapter 2](#chapter-2-1)
-    -   [Chapter 3](#chapter-3-1)
+- [Chapter 2](#chapter-2)
+  - [Non-informative prior](#non-informative-prior)
+  - [Highest Density Credible Interval](#highest-density-credible-interval)
+- [Chapter 3](#chapter-3)
+  - [Linear Regression](#linear-regression)
+  - [Mahalanobis Distance](#mahalanobis-distance)
+- [Chapter 5](#chapter-5)
+  - [First Example](#first-example)
+  - [Second Example](#second-example)
+  - [Third Example](#third-example)
+- [Appendix](#appendix)
+  - [Chapter 2](#chapter-2-1)
+  - [Chapter 3](#chapter-3-1)
+  - [Chapter 5](#chapter-5-1)
 
-## Chapter 2 {#chapter-2}
+## Chapter 2
 
-### Non-informative prior {#non-informative-prior}
+### Non-informative prior
 
 ![](portfolio_full/non-informative-prior.png){width="300"}
 
@@ -29,15 +34,15 @@ The non-informative prior introduced to the example changed the curves. The prio
 
 The non-informative prior highlights that sample size is even more important in reducing uncertainty since the data is the only driver for determining posterier distribution. Compared to the "bad" or unrealistic prior, the posterior distribution of the smaller sample size was actually closer to the larger sample size when using the non-informative prior. This may highlight why some statisticians would choose a non-informative prior to let the data drive the posterior uncertaintly since choosing an unrealistic prior chould be in disagreement with the data.
 
-### Highest Density Credible Interval {#highest-density-credible-interval}
+### Highest Density Credible Interval
 
 The 95% highest posterior density credible interval for p, corresponding to the non-informative prior and the larger data set is: 0.06921215 \<= p \<= 0.3994838. There is a 95% probability that the true value of the parameter (probability of successful free throws) is between 0.069 and 0.399. I used both the Newton-Raphson method and the optimize() function in R to calcuate the narrowest interval.
 
 ![](portfolio_full/95_CI.png){width="300"}
 
-## Chapter 3 {#chapter-3}
+## Chapter 3
 
-### Linear Regression {#linear-regression}
+### Linear Regression
 
 ![](portfolio_full/linear-model.png){width="300"}
 
@@ -56,18 +61,46 @@ knitr::kable(head(dplyr::arrange(read.csv(here::here("posts/primary/portfolio_fu
 
 First, the observation with x == 0.95 and y == -1.46 has a residual value of -4.11. Visually, that point seemed far from the fitted line to me in plot 1, and the residual checks out. Next, the observation with x == -0.82 and y == 1.63 has a residual value of 4.09. This also stood out to me as "far" from the fitted line in plot 1. You can see these as far from the horizontal line at 0 in the residual plot as well!
 
-### Mahalanobis Distance {#mahalanobis-distance}
+### Mahalanobis Distance
 
 Based on the table above, we can see that the highest Mahalanobis Distance values co-occur with observations with high residual values. This makes sense! This Mahalanobis distance is based on an observation's distance from the mean vector, considering variance and covariance. This is similar to what the residual is showing in our basic example with one predictor and one response variable. From the plot below, the shape of the contour is very similar to the shape of the fitted line. In this simple example, values for Mahalnobis Distance and for absolute residual value are extremely similar.
 
 ![](portfolio_full/mdistance-plot.png){width="300"}
 
+\newpage
 ## Chapter 5
+### First Example
+$p(\theta) \propto \sqrt{0.25 - (\theta - 0.5)^{2}}$
 
+7 successes in 10 attempts
 
-## Appendix {#appendix}
+![](portfolio_full/BernGridExample1.png){width="300"}
 
-### Chapter 2 {#chapter-2-1}
+In this example, there are two features: 1. A 'flat', non-informative prior and 2. a small sample size. Despite having a small sample size, the posterior distribution aligns almost exactly to the likelihood function. This alignment is due to the flat prior, which influenced the posterior very little.
+
+\newpage
+### Second Example
+$p(\theta) \propto \sqrt{0.25 - (\theta - 0.5)^{2}}$
+
+70 successes in 100 attempts
+
+![](portfolio_full/BernGridExample2.png){width="300"}
+
+In this example, the prior is still flat, like example 1. However, the sample size is much larger. The proportion of successes is the same, so the mode is the same in the likelihood function (and similar to the posterior). However, the larger sample size gives us a more precise estimate. The range of credible values is smaller, as is shown by the narrower highest density interval.
+
+\newpage
+### Third Example
+$p(\theta) = 2\quad for \quad \left| \theta - 0.5 \right| \ge 0.25, \quad p(\theta) = 0 \quad otherwise$
+
+50 successes in 100 attempts
+
+![](portfolio_full/BernGridExample3.png){width="300"}
+
+In example 3, we see a very specifc prior. The prior gives credibility to both low and high extreme values while giving zero credibility to center values of theta. The likelihood function based on the data is split 50/50 with a mode of 0.5. Most of the data lies within this middle point of theta. Despite the data showing this simple distribution, the prior has a major influence on the posterior distribution, completely changing what we might expect based on the likelihood function. Since we have a balance of success to failures in the data, we now see a bimodal distribution that follows the prior. We even see two HDI's, which are both very narrow. Notably too, the sample size being large did not spare the posterior distribution from the heavy influence of the prior.
+
+## Appendix
+
+### Chapter 2
 
 Acknowledgments: R code for the images created for chapter 2 was adapted from Dr. Charnigo's Chapter 2b examples. R code for calculating the 95% highest density CI was adapted from Dr. Charnigo's Chapter 3b Notes and from [math.arizona.edu/\~jwatkins/I4_bayes](https://math.arizona.edu/~jwatkins/I4_bayes.pdf)
 
@@ -78,7 +111,7 @@ cat(readLines(here::here("posts/primary/portfolio_full/PortfolioChap2.r")), sep 
 
 ```
 
-### Chapter 3 {#chapter-3-1}
+### Chapter 3
 
 Acknowledgments: R code for completing chapter 3 portfolio contributions was adapted from Dr. Charnigo's Chapter 3a and 3b examples.
 
@@ -91,7 +124,7 @@ cat(readLines(here::here("posts/primary/portfolio_full/PortfolioChap3.r")), sep 
 
 ### Chapter 5
 
-Acknowledgments:
+Acknowledgments: Outputs for this chapter exercise were created using the "BernGrid.r" utility provided by John Kruschke (https://sites.google.com/site/doingbayesiandataanalysis/software-installation)
 
 Code:
 
